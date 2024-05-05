@@ -3,6 +3,11 @@
   border-bottom: 1px solid var(--clr-grey-1);
   letter-spacing: var(--spacing);
 }
-.NavBar button {
-  border: none;
+
+.Navlink {
+  padding: 5px;
+}
+
+.Active i {
+  color: var(--clr-primary-1);
 }

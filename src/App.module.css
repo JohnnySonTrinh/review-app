@@ -19,6 +19,11 @@
   --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
+/* Production CSS */
+.main {
+  padding-top: 81px;
+}
+
 .App {
   font-family: var(--ff-secondary);
   background-color: var(--clr-white);
@@ -30,7 +35,7 @@
 }
 
 a {
-  color: var(--clr-white);
+  color: var(--clr-grey-1);
   transition: var(--transition);
 }
 
