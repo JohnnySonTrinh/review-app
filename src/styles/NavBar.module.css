@@ -1,0 +1,8 @@
+.NavBar {
+  background-color: var(--clr-white);
+  border-bottom: 1px solid var(--clr-grey-1);
+  letter-spacing: var(--spacing);
+}
+.NavBar button {
+  border: none;
+}
