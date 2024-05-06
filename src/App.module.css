@@ -85,8 +85,8 @@ input[type='file'] {
 
 i {
   color: var(--clr-grey-1);
-  font-size: 1.2rem;
-  padding: 0.1rem;
+  font-size: 1.6rem;
+  padding: 7px;
   vertical-align: middle;
 }
 
