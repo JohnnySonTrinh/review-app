@@ -1,0 +1,27 @@
+.Container {
+  min-height: 343px;
+}
+
+.Input {
+  font-size: 1rem;
+  background: var(--clr-grey-1);
+  border: 1px solid var(--clr-grey-1);
+  box-sizing: border-box;
+  border-radius: 10px;
+  color: var(--clr-black);
+}
+
+.Input:active {
+  background: var(--clr-grey-2);
+}
+
+.Header {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--clr-primary-1);
+}

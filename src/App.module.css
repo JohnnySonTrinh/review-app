@@ -30,7 +30,7 @@
 
 .App {
   font-family: var(--ff-secondary);
-  background-color: var(--clr-white);
+  background-color: var(--clr-grey-2);
   min-height: 100vh;
 }
 
@@ -40,6 +40,8 @@
 }
 
 .Content {
+  /* Push all content down */
+  margin-top: 5rem;
   background: var(--glass-background);
   border-radius: var(--glass-border-radius);
   box-shadow: var(--glass-box-shadow);

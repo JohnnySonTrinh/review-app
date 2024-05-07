@@ -7,6 +7,7 @@
   margin-left: 2px;
   margin-right: 2px;
   min-width: 75px;
+  
 }
 
 .Button:hover {
@@ -37,13 +38,24 @@
 .Bright:hover {
   background-color: var(--clr-primary-1);
   color: var(--clr-white);
+  transition: var(--transition);
 }
 
 .BlueOutline,
 .Blue:hover {
   /* border: 1px solid #2142b2; */
-  background-color: var(--clr-white);
+  background-color: var(--clr-primary-2);
   color: var(--clr-primary-1);
+  transition: var(--transition);
+}
+
+.Red {
+  background-color: var(--clr-warning);
+}
+
+.Red:hover {
+  background-color: var(--clr-warning-light);
+  color: var(--clr-black);
 }
 
 .Black,
