@@ -5,6 +5,8 @@ import { Card, Media, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Avatar from '../../components/Avatar';
 import { axiosRes } from '../../api/axiosDefaults';
+import { MoreDropdown } from '../../components/MoreDropdown';
+import { useHistory } from 'react-router';
 
 const Review = (props) => {
   const {
@@ -19,18 +21,32 @@ const Review = (props) => {
     content,
     github_repo,
     live_website,
-    updated_at,
+    updated_on,
     reviewPage,
-    setReview,
+    setReviews,
   } = props;
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
+  const history = useHistory();
+
+  const handleEdit = () => {
+    history.push(`/reviews/${id}/edit`);
+  };
+
+  const handleDelete = async () => {
+    try {
+      await axiosRes.delete(`/reviews/${id}/`);
+      history.goBack();
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const handleLike = async () => {
     try {
       const { data } = await axiosRes.post('/likes/', { review: id });
-      setReview((prevReviews) => ({
+      setReviews((prevReviews) => ({
         ...prevReviews,
         results: prevReviews.results.map((review) => {
           return review.id === id
@@ -50,7 +66,7 @@ const Review = (props) => {
   const handleUnlike = async () => {
     try {
       await axiosRes.delete(`/likes/${like_id}`);
-      setReview((prevReviews) => ({
+      setReviews((prevReviews) => ({
         ...prevReviews,
         results: prevReviews.results.map((review) => {
           return review.id === id
@@ -76,8 +92,13 @@ const Review = (props) => {
             {owner}
           </Link>
           <div className='d-flex align-items-center'>
-            <span>{updated_at}</span>
-            {is_owner && reviewPage && '...'}
+            <span>{updated_on}</span>
+            {is_owner && reviewPage && (
+              <MoreDropdown
+                handleEdit={handleEdit}
+                handleDelete={handleDelete}
+              />
+            )}
           </div>
         </Media>
       </Card.Body>
