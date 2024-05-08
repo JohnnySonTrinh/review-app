@@ -6,6 +6,7 @@
   -webkit-backdrop-filter: var(--glass-blur);
   border: var(--glass-border);
   text-align: center;
+  margin-bottom: 2rem;
 }
 
 .Review figure,
