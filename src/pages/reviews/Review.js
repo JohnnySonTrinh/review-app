@@ -14,7 +14,7 @@ const Review = (props) => {
     owner,
     profile_id,
     profile_image,
-    comments_count,
+    notes_count,
     likes_count,
     like_id,
     title,
@@ -146,7 +146,7 @@ const Review = (props) => {
           <Link to={`/reviews/${id}`}>
             <i className='far fa-comments' />
           </Link>
-          {comments_count}
+          {notes_count}
         </div>
       </Card.Body>
     </Card>
