@@ -16,8 +16,9 @@ import { axiosReq } from '../../api/axiosDefaults';
 import NoResults from '../../assets/no-results.png';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { fetchMoreData } from '../../utils/utils';
+import PopularProfiles from '../profiles/PopularProfiles';
 
-function ReviewsPage({ message, filter = '' }) {
+function ReviewsPage({ message, filter = '', mobile }) {
   const [reviews, setReviews] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
@@ -50,10 +51,11 @@ function ReviewsPage({ message, filter = '' }) {
   return (
     <Row className='h-100'>
       <Col className='py-2 p-0 p-lg-2 mt-5' lg={8}>
-        <p>Popular profiles mobile</p>
-        <i className={`fas fa-search ${styles.SearchIcon}`} />
+        <PopularProfiles mobile />
+        <i className={`fas fa-search mt-5 d-none d-lg-block ${styles.SearchIcon}`} />
+        <i className={`fas fa-search d-lg-none ${styles.SearchIcon}`} />
         <Form
-          className={styles.SearchBar}
+          className={`${styles.SearchBar} mt-5`}
           onSubmit={(event) => event.preventDefault()}
         >
           <Form.Control
@@ -89,8 +91,8 @@ function ReviewsPage({ message, filter = '' }) {
           </Container>
         )}
       </Col>
-      <Col md={4} className='d-none d-lg-block p-0 p-lg-2'>
-        <p>Popular profiles for desktop</p>
+      <Col md={4} className='d-none d-lg-block p-0 p-lg-2 mt-5'>
+        <PopularProfiles />
       </Col>
     </Row>
   );
