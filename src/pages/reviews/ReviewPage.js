@@ -66,7 +66,14 @@ function ReviewPage() {
           {notes.results.length ? (
             notes.results
               .filter((note) => note.review === review.results[0].id)
-              .map((note) => <Note key={note.id} {...note} />)
+              .map((note) => (
+                <Note
+                  key={note.id}
+                  {...note}
+                  setReview={setReview}
+                  setNotes={setNotes}
+                />
+              ))
           ) : currentUser ? (
             <span>No notes yet, be the first to note!</span>
           ) : (
