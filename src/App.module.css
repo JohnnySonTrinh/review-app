@@ -41,7 +41,6 @@
 
 .Content {
   /* Push all content down */
-  margin-top: 5rem;
   background: var(--glass-background);
   border-radius: var(--glass-border-radius);
   box-shadow: var(--glass-box-shadow);
