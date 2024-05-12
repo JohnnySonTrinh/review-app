@@ -12,6 +12,7 @@ import Note from '../notes/Note';
 
 import NoteCreateForm from '../notes/NoteCreateForm';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
+import PopularProfiles from '../profiles/PopularProfiles';
 
 function ReviewPage() {
   const { id } = useParams();
@@ -56,12 +57,14 @@ function ReviewPage() {
     }
   };
 
-  const filteredNotes = notes.results.filter(note => note.review === parseInt(id));
+  const filteredNotes = notes.results.filter(
+    (note) => note.review === parseInt(id)
+  );
 
   return (
-    <Row className='h-100'>
-      <Col className='py-2 p-0 p-lg-2' lg={8}>
-        <p>Popular profiles for mobile</p>
+    <Row className='h-100 mt-5'>
+      <Col className='py-2 p-0 p-lg-2 mt-3' lg={8}>
+        <PopularProfiles mobile />
         <Review {...review.results[0]} setReviews={setReview} reviewPage />
         <Container className={`${appStyles.Content}`}>
           {currentUser && (
@@ -78,18 +81,25 @@ function ReviewPage() {
             next={fetchMoreNotes}
             hasMore={!!notes.next}
             loader={<h4>Loading...</h4>}
-            endMessage={<p style={{ textAlign: 'center' }}>
-              <b>You have seen all notes.</b>
-            </p>}
+            endMessage={
+              <p style={{ textAlign: 'center' }}>
+                <b>You have seen all notes.</b>
+              </p>
+            }
           >
             {filteredNotes.map((note) => (
-              <Note key={note.id} {...note} setReview={setReview} setNotes={setNotes} />
+              <Note
+                key={note.id}
+                {...note}
+                setReview={setReview}
+                setNotes={setNotes}
+              />
             ))}
           </InfiniteScroll>
         </Container>
       </Col>
       <Col lg={4} className='d-none d-lg-block p-0 p-lg-2'>
-        Popular profiles for desktop
+        <PopularProfiles />
       </Col>
     </Row>
   );
