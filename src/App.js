@@ -10,6 +10,7 @@ import ReviewPage from './pages/reviews/ReviewPage';
 import ReviewsPage from './pages/reviews/ReviewsPage';
 import { useCurrentUser } from './contexts/CurrentUserContext';
 import ReviewEditForm from './pages/reviews/ReviewEditForm';
+import ProfilePage from './pages/profiles/ProfilePage';
 
 function App() {
   const currentUser = useCurrentUser();
@@ -60,6 +61,7 @@ function App() {
             path='/reviews/:id/edit'
             render={() => <ReviewEditForm />}
           />
+          <Route exact path='/profiles/:id' render={() => <ProfilePage />} />
           <Route render={() => <h1>404 Page not found!</h1>} />
         </Switch>
       </Container>
