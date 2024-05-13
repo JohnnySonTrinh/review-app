@@ -1,25 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
-import Container from 'react-bootstrap/Container';
+import { useParams } from 'react-router';
+import { Col, Row, Container, Button, Image } from 'react-bootstrap';
+import InfiniteScroll from 'react-infinite-scroll-component';
+
+import { axiosReq } from '../../api/axiosDefaults';
+import { useCurrentUser } from '../../contexts/CurrentUserContext';
+import { useProfileData, useSetProfileData } from '../../contexts/ProfileDataContext';
+
 import Asset from '../../components/Asset';
+import PopularProfiles from './PopularProfiles';
+import Review from '../reviews/Review';
+import { ProfileEditDropdown } from '../../components/MoreDropdown';
+
 import styles from '../../styles/ProfilePage.module.css';
 import appStyles from '../../App.module.css';
 import btnStyles from '../../styles/Button.module.css';
-import PopularProfiles from './PopularProfiles';
-import { useCurrentUser } from '../../contexts/CurrentUserContext';
-import { useParams } from 'react-router';
-import { axiosReq } from '../../api/axiosDefaults';
-import {
-  useProfileData,
-  useSetProfileData,
-} from '../../contexts/ProfileDataContext';
-import { Button, Image } from 'react-bootstrap';
-import InfiniteScroll from 'react-infinite-scroll-component';
-import Review from '../reviews/Review';
+
 import { fetchMoreData } from '../../utils/utils';
 import NoResults from '../../assets/no-results.png';
-import { ProfileEditDropdown } from '../../components/MoreDropdown';
+
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -66,7 +65,7 @@ function ProfilePage() {
           />
         </Col>
         <Col lg={6}>
-          <h3 className='m-2'>{profile?.owner}</h3>
+          <h3 className='m-2'>@{profile?.owner}</h3>
           <Row className='justify-content-center no-gutters'>
             <Col xs={3} className='my-2'>
               <div>{profile?.reviews_count}</div>

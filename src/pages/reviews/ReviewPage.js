@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import InfiniteScroll from 'react-infinite-scroll-component';
-
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
-import Container from 'react-bootstrap/Container';
-import appStyles from '../../App.module.css';
 import { useParams } from 'react-router';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { Col, Row, Container } from 'react-bootstrap';
+
 import { axiosReq } from '../../api/axiosDefaults';
+import { useCurrentUser } from '../../contexts/CurrentUserContext';
+
 import Review from './Review';
 import Note from '../notes/Note';
-
 import NoteCreateForm from '../notes/NoteCreateForm';
-import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import PopularProfiles from '../profiles/PopularProfiles';
+
+import appStyles from '../../App.module.css';
+
 
 function ReviewPage() {
   const { id } = useParams();

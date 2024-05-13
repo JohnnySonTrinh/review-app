@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { Media } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+
 import Avatar from '../../components/Avatar';
 import { MoreDropdown } from '../../components/MoreDropdown';
 import NoteEditForm from './NoteEditForm';
 
-import styles from '../../styles/Note.module.css';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { axiosRes } from '../../api/axiosDefaults';
+
+import styles from '../../styles/Note.module.css';
 
 const Note = (props) => {
   const {
