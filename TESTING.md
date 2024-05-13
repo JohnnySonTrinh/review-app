@@ -99,3 +99,15 @@ I've tested my deployed project on multiple devices to check for responsiveness 
 | Desktop (PC/Windows)  | ![screenshot](documentation/responsiveness/desktop-home.png) | ![screenshot](documentation/responsiveness/desktop-profile.png) | ![screenshot](documentation/responsiveness/desktop-review.png) | ![screenshot](documentation/responsiveness/desktop-signin.png) | ![screenshot](documentation/responsiveness/desktop-createreview.png) | Works as expected   |
 | Laptop (MacOS)        | ![screenshot](documentation/responsiveness/mac-home.png)     | ![screenshot](documentation/responsiveness/mac-profile.png)     | ![screenshot](documentation/responsiveness/mac-review.png)     | ![screenshot](documentation/responsiveness/mac-signin.png)     | ![screenshot](documentation/responsiveness/mac-createreview.png)     | Works as expected   |
 | iPhone                | ![screenshot](documentation/responsiveness/iphone-home.png)  | ![screenshot](documentation/responsiveness/iphone-profile.png)  | ![screenshot](documentation/responsiveness/iphone-review.png)  | ![screenshot](documentation/responsiveness/iphone-signin.png)  | ![screenshot](documentation/responsiveness/iphone-createreview.png)  | No access to tokens |
+
+## Lighthouse Audit
+
+I've tested my deployed project using the Lighthouse Audit tool to check for any major issues.
+
+| Page         | Mobile                                                      | Desktop                                                      | Notes                                                                      |
+| ------------ | ----------------------------------------------------------- | ------------------------------------------------------------ | -------------------------------------------------------------------------- |
+| Home         | ![screenshot](documentation/lighthouse/home-mobile.png)     | ![screenshot](documentation/lighthouse/home-desktop.png)     | Largest Contentful Paint elements                                          |
+| Sign In      | ![screenshot](documentation/lighthouse/signin-mobile.png)   | ![screenshot](documentation/lighthouse/signin-desktop.png)   | Some minor warnings                                                        |
+| Profile      | ![screenshot](documentation/lighthouse/profile-mobile.png)  | ![screenshot](documentation/lighthouse/profile-desktop.png)  | Largest Contentful Paint element                                           |
+| Edit Profile | ![screenshot](documentation/lighthouse/eprofile-mobile.png) | ![screenshot](documentation/lighthouse/eprofile-desktop.png) | Issues were logged in the Issues panel in Chrome Devtools, 8 cookies found |
+| Review       | ![screenshot](documentation/lighthouse/review-mobile.png)   | ![screenshot](documentation/lighthouse/review-desktop.png)   | Largest Contentful Paint elements                                          |
