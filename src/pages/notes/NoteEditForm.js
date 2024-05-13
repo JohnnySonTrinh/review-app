@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import Form from "react-bootstrap/Form";
-import { axiosRes } from "../../api/axiosDefaults";
+import Form from 'react-bootstrap/Form';
+import { axiosRes } from '../../api/axiosDefaults';
 
-import styles from "../../styles/NoteCreateEditForm.module.css";
+import styles from '../../styles/NoteCreateEditForm.module.css';
 
 function NoteEditForm(props) {
   const { id, content, setShowEditForm, setNotes } = props;
@@ -27,7 +27,7 @@ function NoteEditForm(props) {
             ? {
                 ...note,
                 content: formContent.trim(),
-                updated_at: "now",
+                updated_at: 'now',
               }
             : note;
         }),
@@ -40,27 +40,27 @@ function NoteEditForm(props) {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Form.Group className="pr-1">
+      <Form.Group className='pr-1'>
         <Form.Control
           className={styles.Form}
-          as="textarea"
+          as='textarea'
           value={formContent}
           onChange={handleChange}
           rows={2}
         />
       </Form.Group>
-      <div className="text-right">
+      <div className='text-right'>
         <button
           className={styles.Button}
           onClick={() => setShowEditForm(false)}
-          type="button"
+          type='button'
         >
           cancel
         </button>
         <button
           className={styles.Button}
           disabled={!content.trim()}
-          type="submit"
+          type='submit'
         >
           save
         </button>

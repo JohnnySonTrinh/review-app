@@ -18,7 +18,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import { fetchMoreData } from '../../utils/utils';
 import PopularProfiles from '../profiles/PopularProfiles';
 
-function ReviewsPage({ message, filter = '', mobile }) {
+function ReviewsPage({ message, filter = '' }) {
   const [reviews, setReviews] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
@@ -52,7 +52,9 @@ function ReviewsPage({ message, filter = '', mobile }) {
     <Row className='h-100'>
       <Col className='py-2 p-0 p-lg-2 mt-5' lg={8}>
         <PopularProfiles mobile />
-        <i className={`fas fa-search mt-5 d-none d-lg-block ${styles.SearchIcon}`} />
+        <i
+          className={`fas fa-search mt-5 d-none d-lg-block ${styles.SearchIcon}`}
+        />
         <i className={`fas fa-search d-lg-none ${styles.SearchIcon}`} />
         <Form
           className={`${styles.SearchBar} mt-5`}

@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from '../../styles/Review.module.css';
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
-import Avatar from "../../components/Avatar";
-import { axiosRes } from "../../api/axiosDefaults";
-import { MoreDropdown } from "../../components/MoreDropdown";
+import { useCurrentUser } from '../../contexts/CurrentUserContext';
+import { Card, Media, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Link, useHistory } from 'react-router-dom';
+import Avatar from '../../components/Avatar';
+import { axiosRes } from '../../api/axiosDefaults';
+import { MoreDropdown } from '../../components/MoreDropdown';
 
 const Review = (props) => {
   const {
