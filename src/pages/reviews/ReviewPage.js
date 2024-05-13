@@ -80,12 +80,6 @@ function ReviewPage() {
             dataLength={filteredNotes.length}
             next={fetchMoreNotes}
             hasMore={!!notes.next}
-            loader={<h4>Loading...</h4>}
-            endMessage={
-              <p style={{ textAlign: 'center' }}>
-                <b>You have seen all notes.</b>
-              </p>
-            }
           >
             {filteredNotes.map((note) => (
               <Note
