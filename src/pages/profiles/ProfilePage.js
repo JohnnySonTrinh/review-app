@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from 'react';
-
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
-
 import Asset from '../../components/Asset';
-
 import styles from '../../styles/ProfilePage.module.css';
 import appStyles from '../../App.module.css';
 import btnStyles from '../../styles/Button.module.css';
-
 import PopularProfiles from './PopularProfiles';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { useParams } from 'react-router';
@@ -23,6 +19,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import Review from '../reviews/Review';
 import { fetchMoreData } from '../../utils/utils';
 import NoResults from '../../assets/no-results.png';
+import { ProfileEditDropdown } from '../../components/MoreDropdown';
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -84,7 +81,29 @@ function ProfilePage() {
               <div>following</div>
             </Col>
           </Row>
+          {/* Add GitHub and LinkedIn links here */}
+          {profile?.github && profile.github.trim() !== '' && (
+            <a
+              href={profile.github}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='m-2'
+            >
+              <i className='fa-brands fa-github'></i>
+            </a>
+          )}
+          {profile?.linkedin && profile.linkedin.trim() !== '' && (
+            <a
+              href={profile.linkedin}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='m-2'
+            >
+              <i className='fa-brands fa-linkedin'></i>
+            </a>
+          )}
         </Col>
+        {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
         <Col lg={3} className='text-lg-right'>
           {currentUser &&
             !is_owner &&
