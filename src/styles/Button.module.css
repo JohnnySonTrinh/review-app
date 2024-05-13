@@ -7,7 +7,6 @@
   margin-left: 2px;
   margin-right: 2px;
   min-width: 75px;
-  
 }
 
 .Button:hover {
@@ -60,17 +59,12 @@
 
 .Black,
 .BlackOutline:hover {
-  /* background-color: #242a3d;
-  color: white; */
   background-color: #242a3d;
   color: var(--clr-grey-3);
 }
 
 .Black:hover,
 .BlackOutline {
-  /* background-color: #dadadf;
-  color: #242a3d;
-  border-color: #242a3d; */
   background-color: var(--clr-grey-3);
   color: var(--clr-grey-2);
 }

@@ -130,7 +130,7 @@ function ProfilePage() {
   const mainProfileReviews = (
     <>
       <hr />
-      <p className='text-center'>{profile?.owner}'s reviews</p>
+      <p className='text-center'>{profile?.owner}'s posts</p>
       <hr />
       {profileReviews.results.length ? (
         <InfiniteScroll

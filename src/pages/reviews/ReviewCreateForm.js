@@ -33,7 +33,6 @@ function ReviewCreateForm() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log('Form submitted');
     const formData = new FormData();
     formData.append('title', title);
     formData.append('content', content);
@@ -45,9 +44,6 @@ function ReviewCreateForm() {
       history.push(`/reviews/${data.id}`);
     } catch (err) {
       console.error('Error: ', err);
-      console.log('Error response data: ', err.response?.data);
-      console.log('Error status code: ', err.response?.status);
-      console.log('Error headers: ', err.response?.headers);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }

@@ -1,6 +1,10 @@
 .SearchBar input {
-  border-radius: 20px;
-  color: #242a3d;
+  font-family: var(--ff-primary);
+  background-color: var(--clr-grey-3);
+  border-radius: var(--glass-border-radius);
+  box-shadow: var(--glass-box-shadow);
+  border: var(--glass-border);
+  color: var(--clr-black);
   padding-left: 40px;
 }
 
@@ -9,9 +13,10 @@
   font-size: 1.2rem;
   padding: 9px;
   padding-left: 15px;
+  color: var(--clr-grey-2);
 }
 
 .SearchIcon:hover {
   cursor: default;
-  color: #cfced3;
+  color: var(--clr-grey-1);
 }

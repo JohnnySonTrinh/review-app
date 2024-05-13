@@ -4,6 +4,7 @@
   --clr-primary-2: rgb(16, 78, 122);
   /* Secondary color shades */
   --clr-secondary: rgb(24, 5, 47);
+  --clr-secondary-2: rgb(159, 153, 180);
   --clr-grey-1: rgb(171, 171, 171);
   --clr-grey-2: rgb(99, 99, 99);
   --clr-grey-3: rgb(240, 248, 255);
@@ -21,7 +22,7 @@
   --spacing: 0.15rem;
   --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   /* Glass morphism effect */
-  --glass-background: rgba(255, 255, 255, 0.09);
+  --glass-background: rgba(76, 29, 248, 0.116);
   --glass-border: 1px solid rgba(255, 255, 255, 0.16);
   --glass-box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.1);
   --glass-border-radius: 16px;
@@ -30,7 +31,7 @@
 
 .App {
   font-family: var(--ff-secondary);
-  background-color: var(--clr-grey-2);
+  background-color: var(--clr-grey-1);
   min-height: 100vh;
 }
 
@@ -40,7 +41,8 @@
 }
 
 .Content {
-  /* Push all content down */
+  font-family: var(--ff-primary);
+  color: var(--clr-black);
   background: var(--glass-background);
   border-radius: var(--glass-border-radius);
   box-shadow: var(--glass-box-shadow);
@@ -67,7 +69,8 @@
 }
 
 a {
-  color: var(--clr-grey-1);
+  font-family: var(--ff-primary);
+  color: var(--clr-black);
   transition: var(--transition);
 }
 
@@ -85,7 +88,7 @@ input[type='file'] {
 }
 
 i {
-  color: var(--clr-grey-1);
+  color: var(--clr-grey-2);
   font-size: 1.6rem;
   padding: 7px;
   vertical-align: middle;

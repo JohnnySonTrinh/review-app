@@ -31,7 +31,7 @@ const NavBar = () => {
 
   const addPostIcon = (
     <NavLink
-      className={styles.NavLink}
+      className={`${styles.NavLink}`}
       activeClassName={styles.Active}
       to='/reviews/create'
     >
@@ -52,7 +52,7 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to='/liked'
       >
-        <i className='fas fa-heart'></i>Liked
+        <i className='fas fa-heart'></i>Like
       </NavLink>
       <NavLink className={styles.NavLink} to='/' onClick={handleSignOut}>
         <i className='fas fa-sign-out-alt'></i>Sign out

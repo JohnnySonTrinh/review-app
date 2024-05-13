@@ -2,7 +2,7 @@
   height: calc(100vh - 81px);
 }
 .Input {
-  background: var(--clr-white);
+  background: var(--clr-grey-3);
   border: 1px solid var(--clr-grey-1);
   box-sizing: border-box;
   border-radius: 10px;

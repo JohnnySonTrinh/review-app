@@ -79,7 +79,7 @@ function ReviewsPage({ message, filter = '' }) {
                 next={() => fetchMoreData(reviews, setReviews)}
               />
             ) : (
-              <Container className={appStyles.Content}>
+              <Container className={`mt-3 ${appStyles.Content}`}>
                 <Asset src={NoResults} message={message} />
               </Container>
             )}

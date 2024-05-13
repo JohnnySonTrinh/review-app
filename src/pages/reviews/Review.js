@@ -89,7 +89,7 @@ const Review = (props) => {
     <Card className={styles.Review}>
       <Card.Body>
         <Media className='align-items-center justify-content-between'>
-          <Link to={`/profiles/${profile_id}`}>
+          <Link className='font-weight-bold' to={`/profiles/${profile_id}`}>
             <Avatar src={profile_image} height={55} />
             {owner}
           </Link>
@@ -108,7 +108,7 @@ const Review = (props) => {
         <Card alt={title} />
       </Link>
       <Card.Body>
-        {title && <Card.Title className='text-center'>{title}</Card.Title>}
+        {title && <Card.Title className='text-center font-weight-bold'>{title}</Card.Title>}
         {github_repo && github_repo.trim() !== '' && (
           <a href={github_repo} target='_blank' rel='noopener noreferrer'>
             <i className='fa-brands fa-github'></i>

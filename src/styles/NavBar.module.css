@@ -1,5 +1,5 @@
 .NavBar {
-  background-color: var(--clr-white);
+  background-color: var(--clr-secondary-2);
   border-bottom: 1px solid var(--clr-grey-1);
   letter-spacing: var(--spacing);
 }
