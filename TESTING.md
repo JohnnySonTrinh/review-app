@@ -74,3 +74,15 @@ I used this command before pasting the code **/_ jshint esversion: 11, asi: true
 | src/pages/reviews  | ReviewPage.js            | ![screenshot](documentation/validation/jshint-reivewpage.png)            | Warnings(2)  |
 | src/pages/reviews  | ReviewsPage.js           | ![screenshot](documentation/validation/jshint-reviewspage.png)           | Warnings(2)  |
 | src/utils          | utils.js                 | ![screenshot](documentation/validation/jshint-utils.png)                 | Warnings(5)  |
+
+## Browser Compatibility
+
+I've tested my deployed project on multiple browsers to check for compatibility issues.
+
+| Browser  | Home                                                   | Profile                                                   | Review                                                   | SignIn                                                   | Create Review                                                  | Notes             |
+| -------- | ------------------------------------------------------ | --------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------------- | ----------------- |
+| Chrome   | ![screenshot](documentation/browsers/chrome-home.png)  | ![screenshot](documentation/browsers/chrome-profile.png)  | ![screenshot](documentation/browsers/chrome-review.png)  | ![screenshot](documentation/browsers/chrome-signin.png)  | ![screenshot](documentation/browsers/chrome-createreview.png)  | Works as expected |
+| FireFox  | ![screenshot](documentation/browsers/firefox-home.png) | ![screenshot](documentation/browsers/firefox-profile.png) | ![screenshot](documentation/browsers/firefox-review.png) | ![screenshot](documentation/browsers/firefox-signin.png) | ![screenshot](documentation/browsers/firefox-createreview.png) | Works as expected |
+| Opera GX | ![screenshot](documentation/browsers/operagx-home.png) | ![screenshot](documentation/browsers/operagx-profile.png) | ![screenshot](documentation/browsers/operagx-review.png) | ![screenshot](documentation/browsers/operagx-signin.png) | ![screenshot](documentation/browsers/operagx-createreview.png) | Works as expected |
+| Edge     | ![screenshot](documentation/browsers/edge-home.png)    | ![screenshot](documentation/browsers/edge-profile.png)    | ![screenshot](documentation/browsers/edge-review.png)    | ![screenshot](documentation/browsers/edge-signin.png)    | ![screenshot](documentation/browsers/edge-createreview.png)    | Works as expected |
+| Safari   | ![screenshot](documentation/browsers/safari-home.png)  | ![screenshot](documentation/browsers/safari-profile.png)  | ![screenshot](documentation/browsers/safari-review.png)  | ![screenshot](documentation/browsers/safari-signin.png)  | ![screenshot](documentation/browsers/safari-createreview.png)  | Works as expected |
