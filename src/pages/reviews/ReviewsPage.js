@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
 import { Form, Col, Row, Container } from 'react-bootstrap';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 import { axiosReq } from '../../api/axiosDefaults';
 import { fetchMoreData } from '../../utils/utils';
@@ -19,6 +20,7 @@ function ReviewsPage({ message, filter = '' }) {
   const [reviews, setReviews] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
+  const currentUser = useCurrentUser();
 
   const [query, setQuery] = useState('');
 
@@ -43,7 +45,7 @@ function ReviewsPage({ message, filter = '' }) {
     return () => {
       clearTimeout(timer);
     };
-  }, [filter, query, pathname]);
+  }, [filter, query, pathname, currentUser]);
 
   return (
     <Row className='h-100'>
