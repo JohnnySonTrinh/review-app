@@ -6,6 +6,6 @@
 
 .Absolute {
   position: absolute;
-  right: 10;
+  right: 10px;
   z-index: 99;
 }
