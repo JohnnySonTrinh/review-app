@@ -31,7 +31,7 @@ function ReviewsPage({ message, filter = '' }) {
         setReviews(data);
         setHasLoaded(true);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
 

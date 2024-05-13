@@ -32,7 +32,7 @@ function ReviewEditForm() {
           ? setReviewData({ title, content, github_repo, live_website })
           : history.push('/');
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
 
