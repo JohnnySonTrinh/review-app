@@ -1,102 +1,81 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# [STAR REVIEW](https://star-review-app-fb4aac8cda63.herokuapp.com)
 
-Welcome,
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/t/JohnnySonTrinh/review-app)](https://github.com/JohnnySonTrinh/review-app/commits/main)
+[![GitHub last commit](https://img.shields.io/github/last-commit/JohnnySonTrinh/review-app)](https://github.com/JohnnySonTrinh/review-app/commits/main)
+[![GitHub repo size](https://img.shields.io/github/repo-size/JohnnySonTrinh/review-app)](https://github.com/JohnnySonTrinh/review-app)
 
-This is the Code Institute student template for React apps on the Codeanywhere IDE. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.  
-DO NOT use this template if you are using the Gitpod IDE. Use the following command instead:  
-`npx create-react-app . --template git+https://github.com/Code-Institute-Org/cra-template-moments.git --use-npm`
+**Star Review** is the ultimate platform for developers to collaborate, review, and enhance code quality through seamless peer feedback. Whether you're a beginner seeking guidance or an experienced coder looking to refine your skills, Star Review offers the tools you need to excel.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **31st August, 2023**
+![screenshot](documentation/mockup.png)
 
-## Codeanywhere Reminders
+## UX
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+The design of **Star Review** was planned to create an intuitive, engaging, and seamless experience for our users.
 
-To log into the Heroku toolbelt CLI:
+### Colour Scheme
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+- `#000000` used for primary text.
+- `#063251` used for primary highlights.
+- `#ababab` used for secondary text.
+- `#104e7a` used for secondary highlights.
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+I used [coolors.co](https://coolors.co/063251-104e7a-18052f-9f99b4-ababab-636363-f0f8ff-ffffff-000000) to generate my colour palette.
 
----
+![screenshot](documentation/coolors.png)
 
-Happy coding!
+I've used CSS `:root` variables to easily update the global colour scheme by changing only one value, instead of everywhere in the CSS file.
 
-# Getting Started with Create React App
+```css
+:root {
+	/* Primary color shades */
+	--clr-primary-1: rgb(6, 50, 81);
+	--clr-primary-2: rgb(16, 78, 122);
+	/* Secondary color shades */
+	--clr-secondary: rgb(24, 5, 47);
+	--clr-secondary-2: rgb(159, 153, 180);
+	--clr-grey-1: rgb(171, 171, 171);
+	--clr-grey-2: rgb(99, 99, 99);
+	--clr-grey-3: rgb(240, 248, 255);
+	/* Warning color */
+	--clr-warning: rgb(250, 66, 66);
+	--clr-warning-light: rgb(255, 195, 84);
+	/* White/black color shades */
+	--clr-white: #ffffff;
+	--clr-black: #000000;
+	/* Primary and secondary font families */
+	--ff-primary: "Roboto", sans-serif;
+	--ff-secondary: "Open Sans", sans-serif;
+	/* Commonly used CSS properties for consistency */
+	--transition: color ease-in-out 0.3s;
+	--spacing: 0.15rem;
+	--light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+	/* Glass morphism effect */
+	--glass-background: rgba(76, 29, 248, 0.116);
+	--glass-border: 1px solid rgba(255, 255, 255, 0.16);
+	--glass-box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.1);
+	--glass-border-radius: 16px;
+	--glass-blur: blur(4px);
+}
+```
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Typography
 
-## Available Scripts
+- [Roboto](https://fonts.google.com/specimen/Roboto) was used for the primary headers and titles.
 
-In the project directory, you can run:
+- [Open Sans](https://fonts.google.com/specimen/Open+Sans?query=open+sans) was used for all other secondary text.
 
-### `npm install`
+- [Font Awesome](https://fontawesome.com) icons were used throughout the site, such as the social media icons in the footer.
 
-Installs the required npm packages.
+## User Stories
 
-### `npm start`
+### New Site Users
 
-Runs the app in the development mode.\
-Open port 3000 to view it in the browser.
+- As a new site user, I would like to easily sign up for an account, so that I can start ask for a code review.
+- As a new site user, I would like to browse different reviews without signing up.
+- As a new site user, I would like to search for code review, so that I can find review that match my skill.
+- As a new site user, I would like to create profile.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Returning Site Users
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- As a returning site user, I would like to see new posts in my feed, so that I can stay up to date with discussions that i "liked".
+- As a returning site user, I would like to be able to edit reviews and comments that I created, so that I can easily change the content.
