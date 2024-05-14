@@ -77,8 +77,143 @@ I've used CSS `:root` variables to easily update the global colour scheme by cha
 
 ### Returning Site Users
 
-- As a returning site user, I would like to see new posts in my feed, so that I can stay up to date with discussions that I "liked".
-- As a returning site user, I would like to be able to edit reviews and comments that I created, so that I can easily change the content.
+- As a returning site user, I would like to see new reviews in my feed, so that I can stay up to date with discussions that I "liked".
+- As a returning site user, I would like to be able to edit reviews and notes that I created, so that I can easily change the content.
+
+## Wireframes
+
+To follow best practice, wireframes were developed for mobile, tablet, and desktop sizes.
+I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wireframes.
+
+### Mobile Wireframes
+
+<details>
+<summary> Click here to see the Mobile Wireframes </summary>
+
+#### Home
+
+- ![screenshot](documentation/wireframes/home-mobile.png)
+
+#### Profle
+
+- ![screenshot](documentation/wireframes/profile-mobile.png)
+
+#### Review
+
+- ![screenshot](documentation/wireframes/review-mobile.png)
+
+</details>
+
+### Desktop Wireframes
+
+<details>
+<summary> Click here to see the Desktop Wireframes </summary>
+
+#### Home(Log in user)
+
+- ![screenshot](documentation/wireframes/home-user.png)
+
+#### Home(None)
+
+- ![screenshot](documentation/wireframes/home-none.png)
+
+#### Profile(Log in user)
+
+- ![screenshot](documentation/wireframes/profile-user.png)
+
+#### Profile(None)
+
+- ![screenshot](documentation/wireframes/profile-none.png)
+
+#### Review(Log in user)
+
+- ![screenshot](documentation/wireframes/review-user.png)
+
+#### Review(None)
+
+- ![screenshot](documentation/wireframes/review-none.png)
+
+#### Sign in
+
+- ![screenshot](documentation/wireframes/signin.png)
+
+#### Sign up
+
+- ![screenshot](documentation/wireframes/signup.png)
+
+</details>
+
+### Create/edit Components
+
+<details>
+<summary> Click here to see Create/edit components Wireframes </summary>
+
+#### Create/edit
+
+- ![screenshot](documentation/wireframes/create-edit.png)
+
+</details>
+
+## Features
+
+Star Reviews Features
+
+### Existing Features
+
+- **User Registration and Log-in**
+
+  - Users can sign up/log in to code review.
+
+![screenshot](documentation/features/feature01.png)
+
+![screenshot](documentation/features/feature02.png)
+
+- **Code review**
+
+  - The platform offers various review based on different interests. users can start note reviews or start to review existing ones. This feature is the core of the start review, allowing for peer code review of ideas, advice, and experiences.
+
+![screenshot](documentation/features/feature03.png)
+
+#### Reusable components
+
+This web app incorporates reusable React components to streamline complexity so that each component's code is written only once, and to improve UX by creating a predictable experience across the web app. For instance, every time a user wants to edit or delete their own user-generated content of any kind, the process is the same.
+
+- Navbar: The navbar appears on every page.
+- Avatar: This is the user's profile image, and is used as a link to their profile everywhere on the web app.
+- Asset: This is an animated spinner that shows whenever a component is loading.
+- More dropdown for editing and deleting: This dropdown menu is used to edit or delete a user's own content in review and notes.
+- Dropdown list for locations: This dropdown menu contains all the locations and is used for plans. In the future it will be used for reviews as well, and to filter the locations page.
+
+#### Profiles
+
+- Profile creation: Users can create a profile with name, bio, Github and Linkedin.
+- Profile page: Profiles show all the user's Review, and counts of how many reviews and followers they have, as well as how many other users they follow.
+- Users can follow or unfollow each other from one another's profile page.
+
+#### Most popular profiles
+
+- The list of most popular profiles appears as a sidebar on larger screens and below the navbar on smaller screens.
+- The users with the most followers appear at the top.
+
+#### reviews
+
+- Each review has a large image uploaded by the user, a title, and content.
+- All the reviews appear on the home page, most recent first.
+- review search: There is a search bar for finding reviews by keyword. If the word is in any part of the review, it will be filtered by the search. If not, the user will see a no-results message. <br>
+
+For logged-in users
+
+- Add review form: The user can access this form in the navbar. It allows them to add a review and includes input fields for title, content, and an image.
+- Update review form: This form is accessed through the dropdown menu on a user's review. They see the same form with their review information, and can make updates in any field.
+- Delete review: The user can access this function through the dropdown menu on their review, and delete the review.
+- notes: Users can note on one another's reviews. Notes have full CRUD functionality.
+- Feed: All reviews by followed users appear in the feed.
+- Likes: Users can like and unlike one another's reviews. All reviews a user has liked will appear on the Likes page.
+
+### Future Features
+
+- Change Avatar/images
+  - User can upload images/profile picture as a avatar.
 
 ## Tools & Technologies Used
 
@@ -119,11 +254,7 @@ It also helped with milestone iterations on a weekly basis.
 
 - [Open Issues](https://github.com/JohnnySonTrinh/coach-app/issues) [![GitHub issues](https://img.shields.io/github/issues/JohnnySonTrinh/coach-app)](https://github.com/JohnnySonTrinh/coach-app/issues)
 
-  ![screenshot](documentation/gh-issues-open.png)
-
 - [Closed Issues](https://github.com/JohnnySonTrinh/coach-app/issues?q=is%3Aissue+is%3Aclosed) [![GitHub closed issues](https://img.shields.io/github/issues-closed/JohnnySonTrinh/coach-app)](https://github.com/JohnnySonTrinh/coach-app/issues?q=is%3Aissue+is%3Aclosed)
-
-  ![screenshot](documentation/gh-issues-closed.png)
 
 ### MoSCoW Prioritization
 
