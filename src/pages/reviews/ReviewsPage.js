@@ -87,7 +87,7 @@ function ReviewsPage({ message, filter = '' }) {
             )}
           </>
         ) : (
-          <Container className={appStyles.Content}>
+          <Container className={`${appStyles.Content} mt-5`}>
             <Asset spinner />
           </Container>
         )}
