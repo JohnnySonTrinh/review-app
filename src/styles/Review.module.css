@@ -31,3 +31,23 @@ h5 {
 .HeartOutline:hover {
   color: #f85032;
 }
+
+.FilledStar {
+  color: gold;
+}
+
+.FilledStar:hover {
+  color: rgb(255, 100, 100);
+}
+
+.EmptyStar {
+  color: var(--clr-primary);
+}
+
+.EmptyStar:hover {
+  color: var(--clr-primary-2);
+}
+.AverageRating {
+  margin-left: 5px;
+  font-size: 1.2em;
+}

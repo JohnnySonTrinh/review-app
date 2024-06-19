@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Card, Media, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { axiosRes } from '../../api/axiosDefaults';
@@ -26,11 +28,28 @@ const Review = (props) => {
     updated_on,
     reviewPage,
     setReviews,
+    average_rating,
+    rating_id,
   } = props;
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
+  const [userRating, setUserRating] = useState(null);
+
+  useEffect(() => {
+    if (currentUser && rating_id) {
+      const fetchUserRating = async () => {
+        try {
+          const { data } = await axiosRes.get(`/ratings/${rating_id}/`);
+          setUserRating(data.stars);
+        } catch (err) {
+          // console.log(err);
+        }
+      };
+      fetchUserRating();
+    }
+  }, [currentUser, rating_id]);
 
   const handleEdit = () => {
     history.push(`/reviews/${id}/edit`);
@@ -83,6 +102,51 @@ const Review = (props) => {
     } catch (err) {
       // console.log(err);
     }
+  };
+
+  const handleRating = async (rating) => {
+    try {
+      if (rating_id) {
+        // Delete existing rating
+        await axiosRes.delete(`/ratings/${rating_id}/`);
+      }
+
+      // Create new rating
+      const { data } = await axiosRes.post('/ratings/', { review: id, stars: rating });
+      setReviews((prevReviews) => ({
+        ...prevReviews,
+        results: prevReviews.results.map((review) => {
+          return review.id === id
+            ? {
+                ...review,
+                average_rating: data.average_rating, // Update with the new average rating
+                rating_id: data.id, // Update the rating_id with the new one
+              }
+            : review;
+        }),
+      }));
+      setUserRating(rating); // Update the user's rating selection
+    } catch (err) {
+      // console.log(err);
+    }
+  };
+
+  const renderStars = () => {
+    const stars = [];
+    const ratingToDisplay = userRating !== null ? userRating : Math.round(average_rating || 0);
+
+    for (let i = 1; i <= 5; i++) {
+      stars.push(
+        <FontAwesomeIcon
+          key={i}
+          icon={faStar}
+          className={i <= ratingToDisplay ? styles.FilledStar : styles.EmptyStar}
+          onClick={() => handleRating(i)}
+          style={{ cursor: 'pointer' }}
+        />
+      );
+    }
+    return stars;
   };
 
   return (
@@ -149,6 +213,11 @@ const Review = (props) => {
             <i className='far fa-comments' />
           </Link>
           {notes_count}
+          {/* Display the average rating */}
+          <div>
+            {renderStars()}
+            <span className={styles.AverageRating}>({average_rating ? average_rating.toFixed(1) : `${userRating ?? average_rating}` })</span>
+          </div>
         </div>
       </Card.Body>
     </Card>

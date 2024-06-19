@@ -31,7 +31,7 @@
 
 .App {
   font-family: var(--ff-secondary);
-  background-color: var(--clr-grey-1);
+  background-color: var(--glass-background);
   min-height: 100vh;
 }
 
