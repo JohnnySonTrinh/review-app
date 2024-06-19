@@ -119,13 +119,13 @@ const Review = (props) => {
           return review.id === id
             ? {
                 ...review,
-                average_rating: data.average_rating, // Update with the new average rating
-                rating_id: data.id, // Update the rating_id with the new one
+                average_rating: data.average_rating,
+                rating_id: data.id,
               }
             : review;
         }),
       }));
-      setUserRating(rating); // Update the user's rating selection
+      setUserRating(rating);
     } catch (err) {
       // console.log(err);
     }
@@ -213,7 +213,6 @@ const Review = (props) => {
             <i className='far fa-comments' />
           </Link>
           {notes_count}
-          {/* Display the average rating */}
           <div>
             {renderStars()}
             <span className={styles.AverageRating}>({average_rating ? average_rating.toFixed(1) : `${userRating ?? average_rating}` })</span>
