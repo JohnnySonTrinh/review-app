@@ -172,7 +172,7 @@ const Review = (props) => {
         <Card alt={title} />
       </Link>
       <Card.Body>
-        {title && <Card.Title className='text-center font-weight-bold'>{title}</Card.Title>}
+        {title && <Link to={`/reviews/${id}`}><Card.Title className='text-center font-weight-bold'>{title}</Card.Title></Link>}
         {github_repo && github_repo.trim() !== '' && (
           <a href={github_repo} target='_blank' rel='noopener noreferrer'>
             <i className='fa-brands fa-github'></i>
