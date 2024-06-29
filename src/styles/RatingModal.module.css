@@ -1,0 +1,7 @@
+.FilledStar {
+  color: var(--clr-primary-2);
+}
+
+.FilledStar:hover {
+  color: var(--clr-grey-3);
+}
