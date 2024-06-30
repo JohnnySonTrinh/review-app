@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Modal, Button } from 'react-bootstrap';
+import { Modal, Button, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
@@ -36,7 +36,7 @@ const RatingModal = ({ show, onHide, reviewId, ratingId, setReviews, title }) =>
         ),
       }));
     } catch (err) {
-      console.error(err); 
+      console.error(err);
     }
   };
 
@@ -85,13 +85,18 @@ const RatingModal = ({ show, onHide, reviewId, ratingId, setReviews, title }) =>
       <Modal.Body className={styles.ModalBody}>
         <div className={styles.StarContainer}>
           {[1, 2, 3, 4, 5].map((star) => (
-            <FontAwesomeIcon
+            <OverlayTrigger
               key={star}
-              icon={faStar}
-              className={star <= selectedRating ? styles.FilledStar : styles.EmptyStar}
-              onClick={() => setSelectedRating(star)}
-              style={{ cursor: 'pointer', fontSize: '2rem' }}
-            />
+              placement='top'
+              overlay={<Tooltip>Rate {star} stars</Tooltip>}
+            >
+              <FontAwesomeIcon
+                icon={faStar}
+                className={star <= selectedRating ? styles.FilledStar : styles.EmptyStar}
+                onClick={() => setSelectedRating(star)}
+                style={{ cursor: 'pointer', fontSize: '2rem' }}
+              />
+            </OverlayTrigger>
           ))}
         </div>
       </Modal.Body>

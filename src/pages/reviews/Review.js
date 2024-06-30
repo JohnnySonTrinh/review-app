@@ -110,7 +110,7 @@ const Review = (props) => {
             ) : is_owner ? (
               <Tooltip>You can't rate your own review!</Tooltip>
             ) : (
-              <Tooltip>Rate {i} stars</Tooltip>
+              <Tooltip>Rate the review</Tooltip>
             )
           }
         >
