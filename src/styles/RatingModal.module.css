@@ -3,5 +3,68 @@
 }
 
 .FilledStar:hover {
-  color: var(--clr-grey-3);
+  color: var(--clr-grey-1);
+}
+
+.ModalCentered {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ModalContent {
+  height: 40%;
+  display: flex;
+  align-items: center;
+  font-family: var(--ff-primary);
+  background: rgba(255, 255, 255, 0.274);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.ModalHeader {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-bottom: none;
+}
+
+.ModalTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.ModalBody {
+  display: flex;
+  align-items: center;
+}
+
+.StarContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.ModalFooter {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  border-top: none;
+}
+
+.FilledStar {
+  color: gold;
+}
+
+.EmptyStar {
+  color: grey;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.EmptyStar:hover {
+  color: gold;
 }

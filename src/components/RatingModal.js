@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
@@ -6,30 +6,50 @@ import axios from 'axios';
 
 import styles from '../styles/RatingModal.module.css';
 
-const RatingModal = ({ show, onHide, reviewId, ratingId, setReviews }) => {
-  const [selectedRating, setSelectedRating] = React.useState(null);
+const RatingModal = ({ show, onHide, reviewId, ratingId, setReviews, title }) => {
+  const [selectedRating, setSelectedRating] = useState(null);
+
+  useEffect(() => {
+    const fetchUserRating = async () => {
+      if (ratingId && show) {
+        try {
+          const { data } = await axios.get(`/ratings/${ratingId}/`);
+          setSelectedRating(data.stars);
+        } catch (err) {
+          console.error(err);
+        }
+      } else {
+        setSelectedRating(null);
+      }
+    };
+
+    fetchUserRating();
+  }, [ratingId, show]);
+
+  const fetchUpdatedReview = async () => {
+    try {
+      const { data } = await axios.get(`/reviews/${reviewId}/`);
+      setReviews((prevReviews) => ({
+        ...prevReviews,
+        results: prevReviews.results.map((review) =>
+          review.id === reviewId ? { ...review, ...data } : review
+        ),
+      }));
+    } catch (err) {
+      console.error(err); 
+    }
+  };
 
   const handleRating = async () => {
     try {
       if (ratingId) {
         await axios.delete(`/ratings/${ratingId}/`);
       }
-      const { data } = await axios.post('/ratings/', { review: reviewId, stars: selectedRating });
-      setReviews((prevReviews) => ({
-        ...prevReviews,
-        results: prevReviews.results.map((review) => {
-          return review.id === reviewId
-            ? {
-                ...review,
-                average_rating: data.average_rating,
-                rating_id: data.id,
-              }
-            : review;
-        }),
-      }));
+      await axios.post('/ratings/', { review: reviewId, stars: selectedRating });
+      await fetchUpdatedReview();
       onHide();
     } catch (err) {
-      // Handle error
+      console.error(err);
     }
   };
 
@@ -37,33 +57,33 @@ const RatingModal = ({ show, onHide, reviewId, ratingId, setReviews }) => {
     try {
       if (ratingId) {
         await axios.delete(`/ratings/${ratingId}/`);
-        setReviews((prevReviews) => ({
-          ...prevReviews,
-          results: prevReviews.results.map((review) => {
-            return review.id === reviewId
-              ? {
-                  ...review,
-                  average_rating: review.average_rating,
-                  rating_id: null,
-                }
-              : review;
-          }),
-        }));
+        await fetchUpdatedReview();
         setSelectedRating(null);
         onHide();
       }
     } catch (err) {
-      // Handle error
+      if (err.response && err.response.status === 404) {
+        console.error("Rating not found. It might have been deleted already.");
+        setSelectedRating(null);
+        onHide();
+      } else {
+        console.error(err);
+      }
     }
   };
 
   return (
-    <Modal show={show} onHide={onHide} >
-      <Modal.Header closeButton>
-        <Modal.Title>Rate this review</Modal.Title>
+    <Modal
+      show={show}
+      onHide={onHide}
+      dialogClassName={styles.ModalCentered}
+      contentClassName={styles.ModalContent}
+    >
+      <Modal.Header closeButton className={styles.ModalHeader}>
+        <Modal.Title className={styles.ModalTitle}>Rate: {title}</Modal.Title>
       </Modal.Header>
-      <Modal.Body>
-        <div className="d-flex justify-content-center">
+      <Modal.Body className={styles.ModalBody}>
+        <div className={styles.StarContainer}>
           {[1, 2, 3, 4, 5].map((star) => (
             <FontAwesomeIcon
               key={star}
@@ -75,7 +95,7 @@ const RatingModal = ({ show, onHide, reviewId, ratingId, setReviews }) => {
           ))}
         </div>
       </Modal.Body>
-      <Modal.Footer>
+      <Modal.Footer className={styles.ModalFooter}>
         <Button variant="danger" onClick={handleDeleteRating} disabled={!ratingId}>
           Delete
         </Button>
