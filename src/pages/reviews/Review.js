@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import { Card, Media, OverlayTrigger, Tooltip } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import React, { useState, useEffect } from "react";
+import { Link, useHistory } from "react-router-dom";
+import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
-import { useCurrentUser } from '../../contexts/CurrentUserContext';
-import { axiosRes } from '../../api/axiosDefaults';
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { axiosRes } from "../../api/axiosDefaults";
 
-import Avatar from '../../components/Avatar';
-import { MoreDropdown } from '../../components/MoreDropdown';
-import RatingModal from '../../components/RatingModal';
+import Avatar from "../../components/Avatar";
+import { MoreDropdown } from "../../components/MoreDropdown";
+import RatingModal from "../../components/RatingModal";
 
-import styles from '../../styles/Review.module.css';
+import styles from "../../styles/Review.module.css";
 
 const Review = (props) => {
   const {
@@ -57,7 +57,7 @@ const Review = (props) => {
 
   const handleLike = async () => {
     try {
-      const { data } = await axiosRes.post('/likes/', { review: id });
+      const { data } = await axiosRes.post("/likes/", { review: id });
       setReviews((prevReviews) => ({
         ...prevReviews,
         results: prevReviews.results.map((review) => {
@@ -97,12 +97,13 @@ const Review = (props) => {
 
   const renderStars = () => {
     const stars = [];
-    const ratingToDisplay = average_rating !== undefined ? Math.round(average_rating) : 0;
+    const ratingToDisplay =
+      average_rating !== undefined ? Math.round(average_rating) : 0;
     for (let i = 1; i <= 5; i++) {
       stars.push(
         <OverlayTrigger
           key={i}
-          placement='top'
+          placement="top"
           overlay={
             !currentUser ? (
               <Tooltip>Log in to rate reviews!</Tooltip>
@@ -116,13 +117,15 @@ const Review = (props) => {
           <span>
             <FontAwesomeIcon
               icon={faStar}
-              className={i <= ratingToDisplay ? styles.FilledStar : styles.EmptyStar}
+              className={
+                i <= ratingToDisplay ? styles.FilledStar : styles.EmptyStar
+              }
               onClick={() => {
                 if (currentUser && !is_owner) {
                   setShowRatingModal(true);
                 }
               }}
-              style={{ cursor: 'pointer' }}
+              style={{ cursor: "pointer" }}
             />
           </span>
         </OverlayTrigger>
@@ -135,15 +138,18 @@ const Review = (props) => {
     <>
       <Card className={styles.Review}>
         <Card.Body>
-          <Media className='align-items-center justify-content-between'>
-            <Link className='font-weight-bold' to={`/profiles/${profile_id}`}>
+          <Media className="align-items-center justify-content-between">
+            <Link className="font-weight-bold" to={`/profiles/${profile_id}`}>
               <Avatar src={profile_image} height={55} />
               {owner}
             </Link>
-            <div className='d-flex align-items-center'>
+            <div className="d-flex align-items-center">
               <span>{updated_on}</span>
               {is_owner && reviewPage && (
-                <MoreDropdown handleEdit={handleEdit} handleDelete={handleDelete} />
+                <MoreDropdown
+                  handleEdit={handleEdit}
+                  handleDelete={handleDelete}
+                />
               )}
             </div>
           </Media>
@@ -154,24 +160,29 @@ const Review = (props) => {
         <Card.Body>
           {title && (
             <Link to={`/reviews/${id}`}>
-              <Card.Title className='text-center font-weight-bold'>{title}</Card.Title>
+              <Card.Title className="text-center font-weight-bold">
+                {title}
+              </Card.Title>
             </Link>
           )}
-          {github_repo && github_repo.trim() !== '' && (
-            <a href={github_repo} target='_blank' rel='noopener noreferrer'>
-              <i className='fa-brands fa-github'></i>
+          {github_repo && github_repo.trim() !== "" && (
+            <a href={github_repo} target="_blank" rel="noopener noreferrer">
+              <i className="fa-brands fa-github"></i>
             </a>
           )}
-          {live_website && live_website.trim() !== '' && (
-            <a href={live_website} target='_blank' rel='noopener noreferrer'>
-              <i className='fa fa-globe'></i>
+          {live_website && live_website.trim() !== "" && (
+            <a href={live_website} target="_blank" rel="noopener noreferrer">
+              <i className="fa fa-globe"></i>
             </a>
           )}
           {content && <Card.Text>{content}</Card.Text>}
           <div className={styles.ReviewBar}>
             {is_owner ? (
-              <OverlayTrigger placement='top' overlay={<Tooltip>You can't like your own review!</Tooltip>}>
-                <i className='far fa-heart' />
+              <OverlayTrigger
+                placement="top"
+                overlay={<Tooltip>You can't like your own review!</Tooltip>}
+              >
+                <i className="far fa-heart" />
               </OverlayTrigger>
             ) : like_id ? (
               <span onClick={handleUnlike}>
@@ -182,19 +193,24 @@ const Review = (props) => {
                 <i className={`far fa-heart ${styles.HeartOutline}`} />
               </span>
             ) : (
-              <OverlayTrigger placement='top' overlay={<Tooltip>Log in to like reviews!</Tooltip>}>
-                <i className='far fa-heart' />
+              <OverlayTrigger
+                placement="top"
+                overlay={<Tooltip>Log in to like reviews!</Tooltip>}
+              >
+                <i className="far fa-heart" />
               </OverlayTrigger>
             )}
             {likes_count}
             <Link to={`/reviews/${id}`}>
-              <i className='far fa-comments' />
+              <i className="far fa-comments" />
             </Link>
             {notes_count}
             <div>
-              <p>Rating: {renderStars()}</p>
+              {renderStars()}
               <span className={styles.AverageRating}>
-                {average_rating !== undefined ? `Average rating: ${average_rating.toFixed(1)}` : 'No ratings yet'}
+                {average_rating !== undefined
+                  ? `${average_rating.toFixed(1)}`
+                  : "No ratings yet"}
               </span>
             </div>
           </div>
