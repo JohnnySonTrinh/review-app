@@ -9,6 +9,17 @@
   min-width: 75px;
 }
 
+.Btnsign{
+  background-color: var(--clr-warning-light);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
 .Button:hover {
   opacity: 0.8;
   border-color: transparent;

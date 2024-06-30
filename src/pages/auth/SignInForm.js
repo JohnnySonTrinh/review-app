@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 
-import { Form, Alert, Button, Col, Row, Image, Container } from 'react-bootstrap';
+import { Form, Alert, Button, Image, Container } from 'react-bootstrap';
 
 import styles from '../../styles/SignInUpForm.module.css';
 import btnStyles from '../../styles/Button.module.css';
-import appStyles from '../../App.module.css';
 
 import { useSetCurrentUser } from '../../contexts/CurrentUserContext';
 import { useRedirect } from '../../hooks/useRedirect';
@@ -47,11 +46,14 @@ function SignInForm() {
   };
 
   return (
-    <Row className={styles.Row}>
-      <Col className='my-auto p-0 p-md-2' md={6}>
-        <Container className={`${appStyles.Content} p-4 `}>
-          <h1 className={styles.Header}>sign in</h1>
-          <Form onSubmit={handleSubmit}>
+    <div className={styles.Center}>
+        <Container className={`${styles.Container}`}>
+          <Image className={`${styles.Image} d-none d-md-inline-flex`} src='https://i.imgur.com/m7mvAFq.png' alt='Background Image'/>
+          <Form onSubmit={handleSubmit} className={styles.Form}>
+          <h1 className={styles.Header}>Sign in</h1>
+          <Link className={`${styles.Link} mb-2`} to='/signup'>
+          Create an account? <span>Sign up now!</span>
+          </Link>
             <Form.Group controlId='username'>
               <Form.Label className='d-none'>Username</Form.Label>
               <Form.Control
@@ -68,7 +70,6 @@ function SignInForm() {
                 {message}
               </Alert>
             ))}
-
             <Form.Group controlId='password'>
               <Form.Label className='d-none'>Password</Form.Label>
               <Form.Control
@@ -86,7 +87,7 @@ function SignInForm() {
               </Alert>
             ))}
             <Button
-              className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}
+              className={`${btnStyles.Btnsign}`}
               type='submit'
             >
               Sign in
@@ -98,22 +99,7 @@ function SignInForm() {
             ))}
           </Form>
         </Container>
-        <Container className={`mt-3 ${appStyles.Content}`}>
-          <Link className={styles.Link} to='/signup'>
-            Don't have an account? <span>Sign up now!</span>
-          </Link>
-        </Container>
-      </Col>
-      <Col
-        md={6}
-        className={`my-auto d-none d-md-block p-2 ${styles.SignInCol}`}
-      >
-        <Image
-          className={`${appStyles.FillerImage}`}
-          src={'https://i.imgur.com/rABMD1C.png'}
-        />
-      </Col>
-    </Row>
+    </div>
   );
 }
 

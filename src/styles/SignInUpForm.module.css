@@ -1,40 +1,5 @@
-.Row {
-  height: calc(100vh - 81px);
-}
-.Input {
-  background: var(--clr-grey-3);
-  border: 1px solid var(--clr-grey-1);
-  box-sizing: border-box;
-  border-radius: 10px;
-  color: var(--clr-grey-2);
-  text-align: center;
-  padding: 10px;
-}
-
-.Header {
-  font-style: normal;
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 19px;
-  text-align: center;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--clr-primary-1);
-}
-
-.Link {
-  text-decoration: none;
-  text-align: center;
-  display: block;
-  margin: auto;
-}
-
 .Link span {
   color: var(--clr-warning-light);
-}
-
-.Container {
-  padding: 30px 10px;
 }
 
 .SignInCol {
@@ -43,4 +8,171 @@
 
 .SignUpCol {
   height: 375px;
+}
+
+.Container {
+  padding: 0;
+  display: flex;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 70%;
+  max-width: 800px;
+  height: 50vh;
+  overflow: hidden;
+
+  h2 {
+    color: var(--clr-warning-light);
+  }
+
+  img {
+    display: none;
+  }
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    width: 100%;
+    color: black;
+  }
+
+  .form-container h2 {
+    margin: 0;
+  }
+  .form-container p {
+    margin: 1rem 0;
+  }
+  .form-container label {
+    display: block;
+    margin: 0.5rem 0;
+  }
+
+  .radio-group {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  .btn-login {
+    background-color: #d15b21;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+  
+  .btn-login:hover {
+    background-color: #c9302c;
+  }
+
+  .input-field {
+    margin-bottom: 1rem;
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    color: gray;
+  }
+
+  .dob-group {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+  }
+
+  .btn-container {
+    width: 100%;
+    text-align: center;
+  }
+
+  textarea {
+    border-radius: 0.5rem;
+    width: 100%;
+  }
+  p {
+    font-size: 0.8rem;
+  }
+}
+
+.Center {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Container {
+  padding: 0;
+  display: flex;
+  background-color: var(--glass-background);
+  border-radius:0.5rem;
+  box-shadow: var(--glass-box-shadow);
+  width: 70%;
+  max-width: 800px;
+  height: 70vh;
+  overflow: hidden;
+}
+
+.Image {
+  max-width: 40%;
+  object-fit: cover;
+  max-height: fit-content;
+}
+
+.Form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  width: 100%;
+  color: black;
+}
+
+.Header {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 2rem;
+  text-align: center;
+  color: var(--clr-warning-light);
+}
+
+.Link {
+  text-decoration: none;
+  text-align: center;
+  display: block;
+}
+
+.Input {
+  border: 1px solid var(--clr-grey-1);
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  color: var(--clr-grey-2);
+  text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .Image {
+    max-width: 20%;
+    object-fit: cover;
+    max-height: fit-content;
+    display: none;
+  }
+
+  .Container {
+    height: 50vh;
+  }
 }
