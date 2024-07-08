@@ -65,15 +65,15 @@ const NavBar = () => {
       >
         <i className="fas fa-heart"></i>Like
       </NavLink>
-      <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
-        <i className="fas fa-sign-out-alt"></i>Sign out
-      </NavLink>
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
         to="/tickets/create"
       >
         <i className="fas fa-ticket-alt"></i>Ticket
+      </NavLink>
+      <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
+        <i className="fas fa-sign-out-alt"></i>Sign out
       </NavLink>
       {(currentUser?.is_superuser ||
         currentUser?.username === "tickets" ||
