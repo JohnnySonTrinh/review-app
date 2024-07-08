@@ -21,6 +21,10 @@ import UsernameForm from './pages/profiles/UsernameForm';
 import UserPasswordForm from './pages/profiles/UserPasswordForm';
 import ProfileEditForm from './pages/profiles/ProfileEditForm';
 
+import TicketForm from './pages/tickets/TicketForm';
+import Tickets from './pages/tickets/Tickets';
+import SpecialRoute from './utils/SpecialRoute';
+
 import { useCurrentUser } from './contexts/CurrentUserContext';
 
 function App() {
@@ -88,6 +92,12 @@ function App() {
             path='/profiles/:id/edit'
             render={() => <ProfileEditForm />}
           />
+          <Route
+            exact
+            path="/tickets/create"
+            render={() => <TicketForm />}
+          />
+          <SpecialRoute path="/tickets" component={Tickets} />
           <Route render={() => <NotFound />} />
         </Switch>
       </Container>

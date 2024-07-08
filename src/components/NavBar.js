@@ -38,6 +38,17 @@ const NavBar = () => {
       <i className='far fa-plus-square'></i>Add review
     </NavLink>
   );
+
+  const adminLinks = (
+    <NavLink
+      className={styles.NavLink}
+      activeClassName={styles.Active}
+      to='/tickets'
+    >
+      <i className='fas fa-ticket-alt'></i>Manage Tickets
+    </NavLink>
+  );
+
   const loggedInIcons = (
     <>
       <NavLink
@@ -59,12 +70,21 @@ const NavBar = () => {
       </NavLink>
       <NavLink
         className={styles.NavLink}
+        activeClassName={styles.Active}
+        to='/tickets/create'
+      >
+        <i className='fas fa-ticket-alt'></i>Create Ticket
+      </NavLink>
+      {(currentUser?.is_superuser || currentUser?.username === "tickets" || currentUser?.username === "admin" ) && adminLinks}
+      <NavLink
+        className={styles.NavLink}
         to={`/profiles/${currentUser?.profile_id}`}
       >
         <Avatar src={currentUser?.profile_image} text='Profile' height={40} />
       </NavLink>
     </>
   );
+
   const loggedOutIcons = (
     <>
       <NavLink
