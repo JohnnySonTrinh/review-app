@@ -1,0 +1,52 @@
+.TicketForm {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: var(--ff-primary);
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 19px;
+  text-align: center;
+  color: var(--clr-primary-1);
+}
+
+.Input {
+  font-size: 1rem;
+  background: var(--clr-grey-3);
+  border: 1px solid var(--clr-grey-1);
+  box-sizing: border-box;
+  border-radius: 10px;
+  color: var(--clr-black);
+}
+
+.TicketForm h1 {
+  color: black;
+  font-size: 2rem;
+  margin-top: 1.5rem;
+}
+
+.TicketForm .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.TicketForm .form-control {
+  border-radius: 5px;
+  box-shadow: none;
+  border: 1px solid #ced4da;
+}
+
+.TicketForm .btn-primary {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 5px;
+}
+
+.TicketForm .alert {
+  margin-top: 1rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .TicketForm {
+    padding-top: 4rem;
+  }
+}
