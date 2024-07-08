@@ -1,17 +1,17 @@
-import React from 'react';
-import { Navbar, Container, Nav } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
-import axios from 'axios';
+import React from "react";
+import { Navbar, Container, Nav } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
+import axios from "axios";
 
-import logo from '../assets/logo.png';
-import styles from '../styles/NavBar.module.css';
-import Avatar from './Avatar';
-import useClickOutsideToggle from '../hooks/useClickOutsideToggle';
+import logo from "../assets/logo.png";
+import styles from "../styles/NavBar.module.css";
+import Avatar from "./Avatar";
+import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import {
   useCurrentUser,
   useSetCurrentUser,
-} from '../contexts/CurrentUserContext';
-import { removeTokenTimestamp } from '../utils/utils';
+} from "../contexts/CurrentUserContext";
+import { removeTokenTimestamp } from "../utils/utils";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
@@ -21,7 +21,7 @@ const NavBar = () => {
 
   const handleSignOut = async () => {
     try {
-      await axios.post('dj-rest-auth/logout/');
+      await axios.post("dj-rest-auth/logout/");
       setCurrentUser(null);
       removeTokenTimestamp();
     } catch (err) {
@@ -33,9 +33,9 @@ const NavBar = () => {
     <NavLink
       className={`${styles.NavLink}`}
       activeClassName={styles.Active}
-      to='/reviews/create'
+      to="/reviews/create"
     >
-      <i className='far fa-plus-square'></i>Add review
+      <i className="far fa-plus-square"></i>Add review
     </NavLink>
   );
 
@@ -43,9 +43,9 @@ const NavBar = () => {
     <NavLink
       className={styles.NavLink}
       activeClassName={styles.Active}
-      to='/tickets'
+      to="/tickets"
     >
-      <i className='fas fa-ticket-alt'></i>Manage Tickets
+      <i className="fas fa-ticket-alt"></i>Manage Tickets
     </NavLink>
   );
 
@@ -54,33 +54,36 @@ const NavBar = () => {
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
-        to='/feed'
+        to="/feed"
       >
-        <i className='fas fa-stream'></i>Feed
+        <i className="fas fa-stream"></i>Feed
       </NavLink>
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
-        to='/liked'
+        to="/liked"
       >
-        <i className='fas fa-heart'></i>Like
+        <i className="fas fa-heart"></i>Like
       </NavLink>
-      <NavLink className={styles.NavLink} to='/' onClick={handleSignOut}>
-        <i className='fas fa-sign-out-alt'></i>Sign out
+      <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
+        <i className="fas fa-sign-out-alt"></i>Sign out
       </NavLink>
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
-        to='/tickets/create'
+        to="/tickets/create"
       >
-        <i className='fas fa-ticket-alt'></i>Create Ticket
+        <i className="fas fa-ticket-alt"></i>Ticket
       </NavLink>
-      {(currentUser?.is_superuser || currentUser?.username === "tickets" || currentUser?.username === "admin" ) && adminLinks}
+      {(currentUser?.is_superuser ||
+        currentUser?.username === "tickets" ||
+        currentUser?.username === "admin") &&
+        adminLinks}
       <NavLink
         className={styles.NavLink}
         to={`/profiles/${currentUser?.profile_id}`}
       >
-        <Avatar src={currentUser?.profile_image} text='Profile' height={40} />
+        <Avatar src={currentUser?.profile_image} text="Profile" height={40} />
       </NavLink>
     </>
   );
@@ -90,16 +93,16 @@ const NavBar = () => {
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
-        to='/signin'
+        to="/signin"
       >
-        <i className='fas fa-sign-in-alt'></i>Sign in
+        <i className="fas fa-sign-in-alt"></i>Sign in
       </NavLink>
       <NavLink
-        to='/signup'
+        to="/signup"
         className={styles.NavLink}
         activeClassName={styles.Active}
       >
-        <i className='fas fa-user-plus'></i>Sign up
+        <i className="fas fa-user-plus"></i>Sign up
       </NavLink>
     </>
   );
@@ -108,30 +111,30 @@ const NavBar = () => {
     <Navbar
       expanded={expanded}
       className={styles.NavBar}
-      expand='sm'
-      fixed='top'
+      expand="sm"
+      fixed="top"
     >
       <Container>
-        <NavLink to='/'>
+        <NavLink to="/">
           <Navbar.Brand>
-            <img src={logo} alt='logo' height='45' />
+            <img src={logo} alt="logo" height="45" />
           </Navbar.Brand>
         </NavLink>
         {currentUser && addPostIcon}
         <Navbar.Toggle
           ref={ref}
           onClick={() => setExpanded(!expanded)}
-          aria-controls='basic-navbar-nav'
+          aria-controls="basic-navbar-nav"
         />
-        <Navbar.Collapse id='basic-navbar-nav'>
-          <Nav className='ml-auto text-left'>
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ml-auto text-left">
             <NavLink
               exact
               className={styles.NavLink}
               activeClassName={styles.Active}
-              to='/'
+              to="/"
             >
-              <i className='fas fa-home'></i>Home
+              <i className="fas fa-home"></i>Home
             </NavLink>
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
