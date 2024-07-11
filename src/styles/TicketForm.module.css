@@ -1,3 +1,7 @@
+.Container {
+  padding: 2rem;
+}
+
 .TicketForm {
   max-width: 600px;
   margin: 0 auto;
@@ -45,8 +49,29 @@
   margin-top: 1rem;
 }
 
+.Faq {
+  cursor: pointer;
+  background: var(--glass-background);
+  border-radius: var(--glass-border-radius);
+  box-shadow: var(--glass-box-shadow);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.accordion .card-header {
+  cursor: pointer;
+}
+
+
 @media only screen and (max-width: 768px) {
   .TicketForm {
     padding-top: 4rem;
   }
 }
+

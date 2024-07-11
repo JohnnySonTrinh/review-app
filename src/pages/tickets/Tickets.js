@@ -42,7 +42,7 @@ function Tickets() {
     <Container className={`${styles} mt-5`}>
       <Row className="justify-content-md-center mt-5">
         <Col>
-          <h1 className="mt-5 text-center">Manage Tickets</h1>
+          <h1 className="mt-5 text-center text-primary">Manage Tickets</h1>
           <Table
             striped
             bordered
