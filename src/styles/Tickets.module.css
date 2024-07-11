@@ -1,4 +1,3 @@
-
 .Tickets {
   background: var(--glass-background);
   border-radius: var(--glass-border-radius);
@@ -6,5 +5,3 @@
   -webkit-backdrop-filter: var(--glass-blur);
   border: var(--glass-border);
 }
-
-

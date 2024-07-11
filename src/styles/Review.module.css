@@ -21,23 +21,23 @@ h5 {
 }
 
 .Heart {
-  color: #f85032;
+  color: var(--clr-red);
 }
 
 .Heart:hover {
-  color: #2142b2;
+  color: var(--clr-primary);
 }
 
 .HeartOutline:hover {
-  color: #f85032;
+  color: var(--clr-red);
 }
 
 .FilledStar {
-  color: gold;
+  color: var(--clr-gold);
 }
 
 .FilledStar:hover {
-  color: rgb(255, 100, 100);
+  color: var(--clr-red);
 }
 
 .EmptyStar {

@@ -5,6 +5,8 @@
   /* Secondary color shades */
   --clr-secondary: rgb(24, 5, 47);
   --clr-secondary-2: rgb(159, 153, 180);
+  --clr-gold: rgb(255, 215, 0);
+  --clr-red: rgb(248, 80, 50);
   --clr-grey-1: rgb(171, 171, 171);
   --clr-grey-2: rgb(99, 99, 99);
   --clr-grey-3: rgb(240, 248, 255);

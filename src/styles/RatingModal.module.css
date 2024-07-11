@@ -18,12 +18,12 @@
   display: flex;
   align-items: center;
   font-family: var(--ff-primary);
-  background: rgba(255, 255, 255, 0.274);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: var(--glass-background);
+  border-radius: var(--glass-border-radius);
+  box-shadow: var(--glass-box-shadow);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
 }
 
 .ModalHeader {
@@ -56,15 +56,15 @@
 }
 
 .FilledStar {
-  color: gold;
+  color: var(--clr-gold);
 }
 
 .EmptyStar {
-  color: grey;
+  color: var(--clr-grey-1);
   cursor: pointer;
   transition: color 0.2s;
 }
 
 .EmptyStar:hover {
-  color: gold;
+  color: var(--clr-gold);
 }

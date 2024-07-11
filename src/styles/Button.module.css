@@ -11,7 +11,7 @@
 
 .Btnsign{
   background-color: var(--clr-warning-light);
-  color: white;
+  color: var(--clr-white);
   border: none;
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
@@ -53,9 +53,7 @@
 
 .BlueOutline,
 .Blue:hover {
-  /* border: 1px solid #2142b2; */
   background-color: var(--clr-primary-2);
-  color: var(--clr-primary-1);
   transition: var(--transition);
 }
 
@@ -65,12 +63,11 @@
 
 .Red:hover {
   background-color: var(--clr-warning-light);
-  color: var(--clr-black);
 }
 
 .Black,
 .BlackOutline:hover {
-  background-color: #242a3d;
+  background-color: var(--clr-primary-1);
   color: var(--clr-grey-3);
 }
 
