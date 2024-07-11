@@ -1,5 +1,9 @@
 .Container {
   margin-top: 5rem;
+  padding: 2rem;
+  background: var(--glass-background);
+  border-radius: var(--glass-border-radius);
+  box-shadow: var(--glass-box-shadow);
 }
 
 .Input {
@@ -9,15 +13,30 @@
   box-sizing: border-box;
   border-radius: 10px;
   color: var(--clr-black);
+  margin-bottom: 1rem;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.Input:focus {
+  border-color: var(--clr-primary-2);
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(16, 78, 122, 0.25);
 }
 
 .Header {
   font-family: var(--ff-primary);
   font-weight: bold;
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
   text-align: center;
   letter-spacing: var(--spacing);
-  text-transform: uppercase;
   color: var(--clr-primary-1);
+  margin-bottom: 2rem;
+}
+
+.Form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
