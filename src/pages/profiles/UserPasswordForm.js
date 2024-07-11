@@ -82,18 +82,20 @@ const UserPasswordForm = () => {
                 {message}
               </Alert>
             ))}
-            <Button
-              className={`${btnStyles.Button} ${btnStyles.Blue}`}
-              onClick={() => history.goBack()}
-            >
-              cancel
-            </Button>
-            <Button
-              type='submit'
-              className={`${btnStyles.Button} ${btnStyles.Blue}`}
-            >
-              save
-            </Button>
+            <div className='d-flex justify-content-around mt-4'>
+              <Button
+                className={`${btnStyles.Button} ${btnStyles.Red}`}
+                onClick={() => history.goBack()}
+              >
+                Cancel
+              </Button>
+              <Button
+                type='submit'
+                className={`${btnStyles.Button} ${btnStyles.Blue}`}
+              >
+                Save
+              </Button>
+            </div>
           </Form>
         </Container>
       </Col>

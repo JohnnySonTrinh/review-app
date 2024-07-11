@@ -122,15 +122,17 @@ const ProfileEditForm = () => {
           {message}
         </Alert>
       ))}
-      <Button
-        className={`${btnStyles.Button} ${btnStyles.Blue}`}
-        onClick={() => history.goBack()}
-      >
-        Cancel
-      </Button>
-      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type='submit'>
-        Save
-      </Button>
+      <div className='d-flex justify-content-around mt-4'>
+        <Button
+          className={`${btnStyles.Button} ${btnStyles.Red}`}
+          onClick={() => history.goBack()}
+        >
+          Cancel
+        </Button>
+        <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type='submit'>
+          Save
+        </Button>
+      </div>
     </div>
   );
 
