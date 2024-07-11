@@ -6,7 +6,35 @@
 
 **Star Review** is the ultimate platform for developers to collaborate, review, and enhance code quality through seamless peer feedback. Whether you're a beginner seeking guidance or an experienced coder looking to refine your skills, Star Review offers the tools you need to excel.
 
-![screenshot](documentation/mockup.png)
+![screenshot](documentation/update-mockup.png)
+
+## Updates
+
+<details>
+<summary> Click here version 2 updates </summary>
+
+### All Updates
+
+- Update all profiles avatar images
+- Redesign Sign in/up page
+- Brighter color scheme
+- Add ratings to reviews, shows the average ratings of all user that rated on the review
+- Add support tickets, tickets for bug fixes/issues on the site or any problems
+- Update CSS `:root` variables, add gold and red colors. Update `--clr-warning-light`
+- Update Project board
+
+## Updated version VS Old version
+
+| Updates                           | New version                                              | Old version                                           |
+| --------------------------------- | -------------------------------------------------------- | ----------------------------------------------------- |
+| Update all profiles avatar images | ![screenshot](documentation/features/update-avatar.png)  | ![screenshot](documentation/features/old-avatar.png)  |
+| Redesign Sign in/up page          | ![screenshot](documentation/features/update-signup.png)  | ![screenshot](documentation/features/feature01.png)   |
+| Brighter color scheme             | ![screenshot](documentation/mockup.png)                  | ![screenshot](documentation/update-mockup.png)        |
+| Add ratings to reviews            | ![screenshot](documentation/features/update-ratings.png) | ![screenshot](documentation/features/old-reviews.png) |
+| Update CSS `:root` variables      | ![screenshot](documentation/features/update-root.png)    | ![screenshot](documentation/features/old-root.png)    |
+|                                   |                                                          |                                                       |
+
+</details>
 
 ## UX
 
@@ -27,34 +55,36 @@ I've used CSS `:root` variables to easily update the global colour scheme by cha
 
 ```css
 :root {
-	/* Primary color shades */
-	--clr-primary-1: rgb(6, 50, 81);
-	--clr-primary-2: rgb(16, 78, 122);
-	/* Secondary color shades */
-	--clr-secondary: rgb(24, 5, 47);
-	--clr-secondary-2: rgb(159, 153, 180);
-	--clr-grey-1: rgb(171, 171, 171);
-	--clr-grey-2: rgb(99, 99, 99);
-	--clr-grey-3: rgb(240, 248, 255);
-	/* Warning color */
-	--clr-warning: rgb(250, 66, 66);
-	--clr-warning-light: rgb(255, 195, 84);
-	/* White/black color shades */
-	--clr-white: #ffffff;
-	--clr-black: #000000;
-	/* Primary and secondary font families */
-	--ff-primary: "Roboto", sans-serif;
-	--ff-secondary: "Open Sans", sans-serif;
-	/* Commonly used CSS properties for consistency */
-	--transition: color ease-in-out 0.3s;
-	--spacing: 0.15rem;
-	--light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-	/* Glass morphism effect */
-	--glass-background: rgba(76, 29, 248, 0.116);
-	--glass-border: 1px solid rgba(255, 255, 255, 0.16);
-	--glass-box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.1);
-	--glass-border-radius: 16px;
-	--glass-blur: blur(4px);
+  /* Primary color shades */
+  --clr-primary-1: rgb(6, 50, 81);
+  --clr-primary-2: rgb(16, 78, 122);
+  /* Secondary color shades */
+  --clr-secondary: rgb(24, 5, 47);
+  --clr-secondary-2: rgb(159, 153, 180);
+  --clr-gold: rgb(255, 215, 0);
+  --clr-red: rgb(248, 80, 50);
+  --clr-grey-1: rgb(171, 171, 171);
+  --clr-grey-2: rgb(99, 99, 99);
+  --clr-grey-3: rgb(240, 248, 255);
+  /* Warning color */
+  --clr-warning: rgb(250, 66, 66);
+  --clr-warning-light: rgb(209, 91, 33);
+  /* White/black color shades */
+  --clr-white: #ffffff;
+  --clr-black: #000000;
+  /* Primary and secondary font families */
+  --ff-primary: "Roboto", sans-serif;
+  --ff-secondary: "Open Sans", sans-serif;
+  /* Commonly used CSS properties for consistency */
+  --transition: color ease-in-out 0.3s;
+  --spacing: 0.15rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  /* Glass morphism effect */
+  --glass-background: rgba(76, 29, 248, 0.116);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.16);
+  --glass-box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.1);
+  --glass-border-radius: 16px;
+  --glass-blur: blur(4px);
 }
 ```
 
@@ -195,7 +225,7 @@ This web app incorporates reusable React components to streamline complexity so 
 - The list of most popular profiles appears as a sidebar on larger screens and below the navbar on smaller screens.
 - The users with the most followers appear at the top.
 
-#### reviews
+#### Reviews
 
 - Each review has a large image uploaded by the user, a title, and content.
 - All the reviews appear on the home page, most recent first.
@@ -209,11 +239,17 @@ For logged-in users
 - notes: Users can note on one another's reviews. Notes have full CRUD functionality.
 - Feed: All reviews by followed users appear in the feed.
 - Likes: Users can like and unlike one another's reviews. All reviews a user has liked will appear on the Likes page.
+- Ratings: Users can rate reviews up to 5 stars. All combind ratings appear as a average rating on the review.
+
+#### Tickets
+
+- Users can send a ticket to the admins for support.
+- Admin user can review all tickets in a admin table.
+- Admin user can mark any ticket as "resolved".
 
 ### Future Features
 
-- Change Avatar/images
-  - User can upload images/profile picture as a avatar.
+- Landing page, what the app is about, and what the vision is for the site
 
 ## Tools & Technologies Used
 
