@@ -1,11 +1,34 @@
+.Dropdown {
+  background: var(--clr-secondary-2);
+  border-radius: var(--glass-border-radius);
+  box-shadow: var(--glass-box-shadow);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+}
+
 .DropdownItem {
   display: inline-block;
   max-width: 50%;
   padding: 0px;
 }
 
+.DropdownItem:hover {
+  border-radius: var(--glass-border-radius);
+  background: var(--clr-grey-3);
+  color: var(--clr-primary-1);
+}
+
+.DropdownItems:hover {
+  border-radius: var(--glass-border-radius);
+  background: var(--clr-grey-3);
+  color: var(--clr-primary-1);
+}
+
 .Absolute {
   position: absolute;
   right: 10px;
   z-index: 99;
+  background: var(--glass-background);
+  border-radius: var(--glass-border-radius);
 }
