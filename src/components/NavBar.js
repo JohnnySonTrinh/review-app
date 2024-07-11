@@ -45,7 +45,7 @@ const NavBar = () => {
       activeClassName={styles.Active}
       to="/tickets"
     >
-      <i className="fas fa-ticket-alt"></i>Manage Tickets
+      <i className="fas fa-ticket-alt"></i>Manage
     </NavLink>
   );
 
